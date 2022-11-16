@@ -51,7 +51,7 @@ extension SearchResultsViewController:  UICollectionViewDelegate, UICollectionVi
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        guard let posterPath = titles[indexPath.row].poster_path else { return UICollectionViewCell() }
+        let posterPath = titles[indexPath.row].poster_path ?? ""
         cell.configure(with: posterPath)
         return cell
     }
