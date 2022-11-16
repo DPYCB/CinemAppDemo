@@ -8,15 +8,11 @@
 import UIKit
 
 class TitleTableViewCell: UITableViewCell {
-    static let identitifer = "TitleTableViewCell"
+    static let tag = "TitleTableViewCell"
     
-    private let posterImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    private let posterImageView = WidgetsFactory.createImageView(enableConstraints: true)
+
+    private let playButton = WidgetsFactory.createIconButton(systemName: "play.circle", enableConstraints: true)
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -24,22 +20,19 @@ class TitleTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let playButton: UIButton = {
-        let button = UIButton()
-        let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 50))
-        button.setImage(image, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.tintColor = .white
-        return button
-    }()
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        applyConstraints()
+    }
+    
+    private func addViews() {
         contentView.addSubview(posterImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(playButton)
-        
-        applyConstraints()
     }
     
     private func applyConstraints() {
@@ -65,9 +58,5 @@ class TitleTableViewCell: UITableViewCell {
         guard let url = APICaller.getPosterUrl(posterPath: model.posterUrlPath) else { return }
         posterImageView.sd_setImage(with: url, completed: nil)
         titleLabel.text = model.titleName
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
     }
 }

@@ -11,11 +11,7 @@ class SearchViewController: UIViewController {
     
     private var titles: [Title] = [Title]()
     
-    private let discoverTableView: UITableView = {
-        let table = UITableView()
-        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identitifer)
-        return table
-    }()
+    private let discoverTableView = WidgetsFactory.createTableView(cellClass: TitleTableViewCell.self, tag: TitleTableViewCell.tag)
     
     private let searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: SearchResultsViewController())
@@ -70,7 +66,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identitifer) as? TitleTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.tag) as? TitleTableViewCell else {
             return UITableViewCell()
         }
         let title = titles[indexPath.row]

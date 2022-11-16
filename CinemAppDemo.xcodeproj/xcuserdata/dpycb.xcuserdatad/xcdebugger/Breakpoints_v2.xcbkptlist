@@ -14,10 +14,10 @@
             filePath = "CinemAppDemo/Controllers/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "didTapCell(cell:viewModel:)"
-            landmarkType = "7">
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "HomeViewController"
+            landmarkType = "21">
             <Locations>
                <Location
                   uuid = "30867252-0E77-470E-A8E5-20650835C18B - 3b6b0ad8616175c6"

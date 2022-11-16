@@ -13,7 +13,7 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
 
 class CollectionViewTableViewCell: UITableViewCell {
     
-    static let identifier = "CollectionViewTableViewCell"
+    static let tag = "CollectionViewTableViewCell"
     
     weak var delegate: CollectionViewTableViewCellDelegate?
     

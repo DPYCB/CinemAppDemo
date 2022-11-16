@@ -10,12 +10,8 @@ import UIKit
 class UpcomingViewController: UIViewController {
     
     private var titles: [Title] = [Title]()
-    
-    private let upcomingTable: UITableView = {
-        let table = UITableView()
-        table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identitifer)
-        return table
-    }()
+        
+    private let upcomingTable = WidgetsFactory.createTableView(cellClass: TitleTableViewCell.self, tag: TitleTableViewCell.tag)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +53,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identitifer, for: indexPath) as? TitleTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.tag, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
         }
         let title = titles[indexPath.row]

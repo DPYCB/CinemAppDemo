@@ -11,11 +11,7 @@ class DownloadViewController: UIViewController {
     
     private var titles: [TitleEntity] = [TitleEntity]()
     
-    private let downloadsTableView = {
-       let tableView = UITableView()
-        tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identitifer)
-        return tableView
-    }()
+    private let downloadsTableView = WidgetsFactory.createTableView(cellClass: TitleTableViewCell.self, tag: TitleTableViewCell.tag)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +72,7 @@ extension DownloadViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identitifer, for: indexPath) as? TitleTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.tag, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
         }
         let title = titles[indexPath.row]

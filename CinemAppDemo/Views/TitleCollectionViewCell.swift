@@ -9,13 +9,9 @@ import UIKit
 import SDWebImage
 
 class TitleCollectionViewCell: UICollectionViewCell {
-    static let identifier = "TitleCollectionViewCell"
+    static let tag = "TitleCollectionViewCell"
     
-    private let posterView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
+    private let posterView = WidgetsFactory.createImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

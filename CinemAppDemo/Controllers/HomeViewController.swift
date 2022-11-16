@@ -17,11 +17,7 @@ enum Sections: Int {
 }
 
 class HomeViewController : UIViewController {
-    private let homeFeedTable: UITableView = {
-        let table = UITableView(frame: .zero, style: .grouped)
-        table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
-        return table
-    }()
+    private let homeFeedTable = WidgetsFactory.createTableView(cellClass: CollectionViewTableViewCell.self, tag: CollectionViewTableViewCell.tag)
     
     let sectionTitles = [
         "Trending Movies",
@@ -91,7 +87,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.tag, for: indexPath) as? CollectionViewTableViewCell
         else {
             return UITableViewCell()
         }

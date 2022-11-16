@@ -25,16 +25,7 @@ class TitlePreviewViewController: UIViewController {
         return label
     }()
     
-    private let downdloadButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .green
-        button.setTitle("Download", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 5
-        button.layer.masksToBounds = true
-        return button
-    }()
+    private let downdloadButton = WidgetsFactory.createButton(label: "Download", enableConstraints: true)
     
     private let webView = {
         let webView = WKWebView()
@@ -45,12 +36,14 @@ class TitlePreviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        applyConstraints()
+    }
+    
+    private func addViews() {
         view.addSubview(webView)
         view.addSubview(titleLabel)
         view.addSubview(overviewLabel)
         view.addSubview(downdloadButton)
-        
-        applyConstraints()
     }
     
     func configure(with model: TitlePreviewViewModel) {
