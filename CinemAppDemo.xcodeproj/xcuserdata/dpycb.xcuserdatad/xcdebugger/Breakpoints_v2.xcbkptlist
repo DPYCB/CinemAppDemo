@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "91EFC2C2-5088-4725-BD0D-032974F0F9B6"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "30867252-0E77-470E-A8E5-20650835C18B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CinemAppDemo/Controllers/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "didTapCell(cell:viewModel:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "30867252-0E77-470E-A8E5-20650835C18B - 3b6b0ad8616175c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CinemAppDemo.HomeViewController.didTapCell(cell: CinemAppDemo.CollectionViewTableViewCell, viewModel: CinemAppDemo.TitlePreviewViewModel) -&gt; ()"
+                  moduleName = "CinemAppDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dpycb/XCodeProjects/CinemAppDemo/CinemAppDemo/Controllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "30867252-0E77-470E-A8E5-20650835C18B - 97fff1cf1fc5be91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CinemAppDemo.HomeViewController.didTapCell(cell: CinemAppDemo.CollectionViewTableViewCell, viewModel: CinemAppDemo.TitlePreviewViewModel) -&gt; ()"
+                  moduleName = "CinemAppDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dpycb/XCodeProjects/CinemAppDemo/CinemAppDemo/Controllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
