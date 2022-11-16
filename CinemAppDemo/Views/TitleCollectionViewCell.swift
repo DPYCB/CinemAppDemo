@@ -11,7 +11,7 @@ import SDWebImage
 class TitleCollectionViewCell: UICollectionViewCell {
     static let tag = "TitleCollectionViewCell"
     
-    private let posterView = WidgetsFactory.createImageView()
+    private let posterView = WidgetsFactory.createImageView(enableConstraints: false)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
