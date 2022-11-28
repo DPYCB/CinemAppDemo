@@ -2,7 +2,7 @@
 //  TitleCollectionViewCell.swift
 //  CinemAppDemo
 //
-//  Created by Илья Жариков on 14.11.2022.
+//  Created by DPYCB on 14.11.2022.
 //
 
 import UIKit

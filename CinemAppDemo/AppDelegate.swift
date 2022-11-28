@@ -1,9 +1,4 @@
 //
-//  AppDelegate.swift
-//  CinemAppDemo
-//
-//  Created by Илья Жариков on 13.11.2022.
-//
 
 import UIKit
 import CoreData

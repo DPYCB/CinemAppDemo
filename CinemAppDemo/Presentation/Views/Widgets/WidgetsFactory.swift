@@ -2,7 +2,7 @@
 //  Widgets.swift
 //  CinemAppDemo
 //
-//  Created by Илья Жариков on 16.11.2022.
+//  Created by DPYCB on 16.11.2022.
 //
 
 import Foundation

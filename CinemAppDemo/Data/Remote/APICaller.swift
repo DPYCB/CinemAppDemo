@@ -1,9 +1,4 @@
 //
-//  APICaller.swift
-//  CinemAppDemo
-//
-//  Created by Илья Жариков on 14.11.2022.
-//
 
 import Foundation
 
@@ -15,11 +10,11 @@ struct Companion {
     static let POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
 }
 
-enum APIError: Error {
-    case FailedToFetchData
-}
-
 class APICaller {
+    enum APIError: Error {
+        case FailedToFetchData
+    }
+    
     static let instance = APICaller()
     
     static func getPosterUrl(posterPath: String) -> URL? {
