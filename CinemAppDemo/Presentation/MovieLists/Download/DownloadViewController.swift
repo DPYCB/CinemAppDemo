@@ -4,9 +4,18 @@ import UIKit
 
 class DownloadViewController: UIViewController {
     
-    private var titles: [TitleEntity] = [TitleEntity]()
-    
     private let downloadsTableView = WidgetsFactory.createTableView(cellClass: TitleTableViewCell.self, tag: TitleTableViewCell.tag)
+    
+    private let viewModel: DownloadsViewModel
+    
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, _ downloadsViewModel: DownloadsViewModel) {
+        self.viewModel = downloadsViewModel
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,10 +28,10 @@ class DownloadViewController: UIViewController {
         
         downloadsTableView.delegate = self
         downloadsTableView.dataSource = self
-        getDownloads()
+        updateTableView()
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name("Downloaded"), object: nil, queue: nil) { [weak self] _ in
-            self?.getDownloads()
+            self?.updateTableView()
         }
     }
     
@@ -31,35 +40,15 @@ class DownloadViewController: UIViewController {
         downloadsTableView.frame = view.bounds
     }
     
-    private func getDownloads() {
-        DatabaseManager.instance.getTitles { [weak self] result in
-            switch result {
-            case.success(let titles):
-                self?.titles = titles
-                DispatchQueue.main.async {
-                    self?.downloadsTableView.reloadData()
-                }
-            case.failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
-    
-    private func deleteDownload(itemId: Int) {
-        DatabaseManager.instance.deleteTitle(with: titles[itemId]) { result in
-            switch result {
-            case.failure(let error):
-                print(error.localizedDescription)
-            default:
-                break;
-            }
-        }
+    private func updateTableView() {
+        viewModel.updateDownloads()
+        DispatchQueue.main.async { self.downloadsTableView.reloadData() }
     }
 }
 
 extension DownloadViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return viewModel.getDownloadsCount()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -70,19 +59,15 @@ extension DownloadViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.tag, for: indexPath) as? TitleTableViewCell else {
             return UITableViewCell()
         }
-        let title = titles[indexPath.row]
-        let titleName = title.original_name ?? title.original_title ?? ""
-        guard let titlePosterPath = title.poster_path else { return UITableViewCell() }
-        cell.configure(with: TitleViewModel(titleName: titleName, posterUrlPath: titlePosterPath))
+        guard let titleViewState = viewModel.getTitleViewState(itemId: indexPath.row) else { return UITableViewCell() }
+        cell.configure(with: titleViewState)
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
         switch editingStyle {
         case.delete:
-            deleteDownload(itemId: indexPath.row)
-            titles.remove(at: indexPath.row)
+            viewModel.deleteDownload(itemId: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         default:
             break;

@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct TitleViewModel {
+struct TitleViewState {
     let titleName: String
     let posterUrlPath: String
 }

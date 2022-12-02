@@ -64,7 +64,7 @@ class HomeViewController : UIViewController {
                 let titleName = title?.original_name ?? title?.original_name ?? ""
                 guard let titlePosterPath = title?.poster_path else {return}
                 self?.randomTrendingMovie = title
-                self?.promoHeaderView?.configure(with: TitleViewModel(titleName: titleName, posterUrlPath: titlePosterPath))
+                self?.promoHeaderView?.configure(with: TitleViewState(titleName: titleName, posterUrlPath: titlePosterPath))
             case .failure(let error):
                 print(error.localizedDescription)
             }

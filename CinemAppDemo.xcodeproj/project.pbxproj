@@ -13,10 +13,9 @@
 		9324321C29224BF10035D1E0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9324321B29224BF10035D1E0 /* SDWebImage */; };
 		9324321E29224BF10035D1E0 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9324321D29224BF10035D1E0 /* SDWebImageMapKit */; };
 		93243220292268E40035D1E0 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324321F292268E40035D1E0 /* TitleTableViewCell.swift */; };
-		9324322229226C390035D1E0 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324322129226C390035D1E0 /* TitleViewModel.swift */; };
+		9324322229226C390035D1E0 /* TitleViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9324322129226C390035D1E0 /* TitleViewState.swift */; };
 		93243224292279160035D1E0 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93243223292279160035D1E0 /* SearchResultsViewController.swift */; };
 		9335CDA22920DE07005585E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335CDA12920DE07005585E6 /* AppDelegate.swift */; };
-		9335CDA42920DE07005585E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335CDA32920DE07005585E6 /* SceneDelegate.swift */; };
 		9335CDA62920DE07005585E6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335CDA52920DE07005585E6 /* MainTabBarViewController.swift */; };
 		9335CDAB2920DE08005585E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9335CDAA2920DE08005585E6 /* Assets.xcassets */; };
 		9335CDAE2920DE08005585E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9335CDAC2920DE08005585E6 /* LaunchScreen.storyboard */; };
@@ -33,8 +32,14 @@
 		93530FB52934A28900CC5E50 /* TitlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93530FB42934A28900CC5E50 /* TitlesRepository.swift */; };
 		936736592923DF4700AE5300 /* CinemAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 936736572923DF4700AE5300 /* CinemAppModel.xcdatamodeld */; };
 		9367365E2923E19100AE5300 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9367365D2923E19100AE5300 /* DatabaseManager.swift */; };
+		939681482939DCDF00B9657B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 939681472939DCDF00B9657B /* Swinject */; };
+		9396814A2939E04E00B9657B /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939681492939E04E00B9657B /* AppDIContainer.swift */; };
+		9396814C2939E4E600B9657B /* DownloadTitlesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9396814B2939E4E600B9657B /* DownloadTitlesUseCases.swift */; };
+		9396814E2939E6A100B9657B /* DownloadsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9396814D2939E6A100B9657B /* DownloadsViewModel.swift */; };
+		939681502939E6B100B9657B /* DownloadsViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9396814F2939E6B100B9657B /* DownloadsViewModelImpl.swift */; };
+		93968154293A0A9500B9657B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93968153293A0A9500B9657B /* SceneDelegate.swift */; };
 		93D0D80C292515CF0055C558 /* WidgetsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D0D80B292515CF0055C558 /* WidgetsFactory.swift */; };
-		93EB6DFF2934B42D00983FD5 /* DownloadTitlesUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EB6DFE2934B42D00983FD5 /* DownloadTitlesUseCases.swift */; };
+		93EB6DFF2934B42D00983FD5 /* DownloadTitlesUseCasesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EB6DFE2934B42D00983FD5 /* DownloadTitlesUseCasesImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,11 +47,10 @@
 		9324321229223D8F0035D1E0 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		9324321829224AC70035D1E0 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		9324321F292268E40035D1E0 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
-		9324322129226C390035D1E0 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		9324322129226C390035D1E0 /* TitleViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewState.swift; sourceTree = "<group>"; };
 		93243223292279160035D1E0 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		9335CD9E2920DE07005585E6 /* CinemAppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemAppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9335CDA12920DE07005585E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9335CDA32920DE07005585E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9335CDA52920DE07005585E6 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		9335CDAA2920DE08005585E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9335CDAD2920DE08005585E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,8 +68,13 @@
 		93530FB42934A28900CC5E50 /* TitlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesRepository.swift; sourceTree = "<group>"; };
 		936736582923DF4700AE5300 /* CinemAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CinemAppModel.xcdatamodel; sourceTree = "<group>"; };
 		9367365D2923E19100AE5300 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		939681492939E04E00B9657B /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		9396814B2939E4E600B9657B /* DownloadTitlesUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTitlesUseCases.swift; sourceTree = "<group>"; };
+		9396814D2939E6A100B9657B /* DownloadsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewModel.swift; sourceTree = "<group>"; };
+		9396814F2939E6B100B9657B /* DownloadsViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewModelImpl.swift; sourceTree = "<group>"; };
+		93968153293A0A9500B9657B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		93D0D80B292515CF0055C558 /* WidgetsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsFactory.swift; sourceTree = "<group>"; };
-		93EB6DFE2934B42D00983FD5 /* DownloadTitlesUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTitlesUseCases.swift; sourceTree = "<group>"; };
+		93EB6DFE2934B42D00983FD5 /* DownloadTitlesUseCasesImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadTitlesUseCasesImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +84,7 @@
 			files = (
 				9324321E29224BF10035D1E0 /* SDWebImageMapKit in Frameworks */,
 				9324321C29224BF10035D1E0 /* SDWebImage in Frameworks */,
+				939681482939DCDF00B9657B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,11 +114,12 @@
 				93934E762930C7890020D204 /* Domain */,
 				93934E752930C77E0020D204 /* Data */,
 				9335CDA12920DE07005585E6 /* AppDelegate.swift */,
-				9335CDA32920DE07005585E6 /* SceneDelegate.swift */,
 				9335CDAA2920DE08005585E6 /* Assets.xcassets */,
 				9335CDAC2920DE08005585E6 /* LaunchScreen.storyboard */,
 				9335CDAF2920DE08005585E6 /* Info.plist */,
 				936736572923DF4700AE5300 /* CinemAppModel.xcdatamodeld */,
+				939681492939E04E00B9657B /* AppDIContainer.swift */,
+				93968153293A0A9500B9657B /* SceneDelegate.swift */,
 			);
 			path = CinemAppDemo;
 			sourceTree = "<group>";
@@ -148,7 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				93530FB42934A28900CC5E50 /* TitlesRepository.swift */,
-				93EB6DFE2934B42D00983FD5 /* DownloadTitlesUseCases.swift */,
+				93EB6DFE2934B42D00983FD5 /* DownloadTitlesUseCasesImpl.swift */,
+				9396814B2939E4E600B9657B /* DownloadTitlesUseCases.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -193,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				9335CDBC2920E373005585E6 /* DownloadViewController.swift */,
+				9396814D2939E6A100B9657B /* DownloadsViewModel.swift */,
+				9396814F2939E6B100B9657B /* DownloadsViewModelImpl.swift */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -209,7 +223,7 @@
 		93934E7D2930C96C0020D204 /* MovieLists */ = {
 			isa = PBXGroup;
 			children = (
-				9324322129226C390035D1E0 /* TitleViewModel.swift */,
+				9324322129226C390035D1E0 /* TitleViewState.swift */,
 				93934E7B2930C90C0020D204 /* Download */,
 				93934E7A2930C8F50020D204 /* Search */,
 				93934E792930C8EC0020D204 /* Upcoming */,
@@ -262,6 +276,7 @@
 			packageProductDependencies = (
 				9324321B29224BF10035D1E0 /* SDWebImage */,
 				9324321D29224BF10035D1E0 /* SDWebImageMapKit */,
+				939681472939DCDF00B9657B /* Swinject */,
 			);
 			productName = CinemAppDemo;
 			productReference = 9335CD9E2920DE07005585E6 /* CinemAppDemo.app */;
@@ -293,6 +308,7 @@
 			mainGroup = 9335CD952920DE07005585E6;
 			packageReferences = (
 				9324321A29224BF10035D1E0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				939681462939DCDF00B9657B /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 9335CD9F2920DE07005585E6 /* Products */;
 			projectDirPath = "";
@@ -332,16 +348,20 @@
 				9335CDA22920DE07005585E6 /* AppDelegate.swift in Sources */,
 				936736592923DF4700AE5300 /* CinemAppModel.xcdatamodeld in Sources */,
 				9335CDBD2920E373005585E6 /* DownloadViewController.swift in Sources */,
-				9335CDA42920DE07005585E6 /* SceneDelegate.swift in Sources */,
 				9367365E2923E19100AE5300 /* DatabaseManager.swift in Sources */,
 				9335CDC62920F473005585E6 /* PromoHeaderUIView.swift in Sources */,
 				93530FB32934A22800CC5E50 /* TitlesRepositoryImpl.swift in Sources */,
-				93EB6DFF2934B42D00983FD5 /* DownloadTitlesUseCases.swift in Sources */,
+				93968154293A0A9500B9657B /* SceneDelegate.swift in Sources */,
+				9396814C2939E4E600B9657B /* DownloadTitlesUseCases.swift in Sources */,
+				93EB6DFF2934B42D00983FD5 /* DownloadTitlesUseCasesImpl.swift in Sources */,
 				9335CDB92920E31F005585E6 /* UpcomingViewController.swift in Sources */,
 				9324321929224AC70035D1E0 /* TitleCollectionViewCell.swift in Sources */,
+				939681502939E6B100B9657B /* DownloadsViewModelImpl.swift in Sources */,
+				9396814E2939E6A100B9657B /* DownloadsViewModel.swift in Sources */,
 				9345717F2923945E00EACAF2 /* YoutubeResponse.swift in Sources */,
-				9324322229226C390035D1E0 /* TitleViewModel.swift in Sources */,
+				9324322229226C390035D1E0 /* TitleViewState.swift in Sources */,
 				9324321329223D8F0035D1E0 /* Title.swift in Sources */,
+				9396814A2939E04E00B9657B /* AppDIContainer.swift in Sources */,
 				93D0D80C292515CF0055C558 /* WidgetsFactory.swift in Sources */,
 				9335CDB72920E167005585E6 /* HomeViewController.swift in Sources */,
 			);
@@ -559,6 +579,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		939681462939DCDF00B9657B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -571,6 +599,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9324321A29224BF10035D1E0 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		939681472939DCDF00B9657B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 939681462939DCDF00B9657B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -3,8 +3,13 @@
 import Foundation
 
 class TitlesRepositoryImpl: TitlesRepository {
-    private let titlesDatabase = DatabaseManager.instance
-    private let titlesApi = APICaller.instance
+    private let titlesDatabase: DatabaseManager
+    private let titlesApi: APICaller
+    
+    init(titlesDatabase: DatabaseManager, titlesApi: APICaller) {
+        self.titlesDatabase = titlesDatabase
+        self.titlesApi = titlesApi
+    }
     
     func downloadTitle(title: Title, onComplete: @escaping (Result<Void, Error>) -> Void) {
         titlesDatabase.downloadTitle(model: title, onComplete: onComplete)

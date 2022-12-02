@@ -50,7 +50,7 @@ class TitleTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate(posterImageViewConstraints + titleLabelConstraints + playButtonConstraints)
     }
     
-    public func configure(with model: TitleViewModel) {
+    public func configure(with model: TitleViewState) {
         guard let url = APICaller.getPosterUrl(posterPath: model.posterUrlPath) else { return }
         posterImageView.sd_setImage(with: url, completed: nil)
         titleLabel.text = model.titleName

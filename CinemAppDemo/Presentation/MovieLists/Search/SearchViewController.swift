@@ -67,7 +67,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let title = titles[indexPath.row]
         let titleName = title.original_title ?? title.original_name ?? ""
         guard let posterUrlPath = title.poster_path else { return UITableViewCell() }
-        cell.configure(with: TitleViewModel(titleName: titleName, posterUrlPath: posterUrlPath))
+        cell.configure(with: TitleViewState(titleName: titleName, posterUrlPath: posterUrlPath))
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

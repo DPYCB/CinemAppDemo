@@ -31,7 +31,7 @@ class PromoHeaderUIView: UIView {
         promoImageView.frame = bounds
     }
     
-    public func configure(with viewModel: TitleViewModel) {
+    public func configure(with viewModel: TitleViewState) {
         guard let url = APICaller.getPosterUrl(posterPath: viewModel.posterUrlPath) else { return }
         promoImageView.sd_setImage(with: url, completed: nil)
     }

@@ -54,7 +54,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
         let title = titles[indexPath.row]
         let titleName = title.original_name ?? title.original_title ?? ""
         guard let posterPath = title.poster_path else { return UITableViewCell() }
-        cell.configure(with: TitleViewModel(titleName: titleName, posterUrlPath: posterPath))
+        cell.configure(with: TitleViewState(titleName: titleName, posterUrlPath: posterPath))
         return cell
     }
     
