@@ -3,28 +3,22 @@
 import Foundation
 import UIKit
 
-enum Sections: Int {
-    case TrendingMovies = 0
-    case TrendingTV = 1
-    case Popular = 2
-    case UpcomingMovies = 3
-    case TopRated = 4
-}
-
 class HomeViewController : UIViewController {
+    
     private let homeFeedTable = WidgetsFactory.createTableView(cellClass: CollectionViewTableViewCell.self, tag: CollectionViewTableViewCell.tag)
     
-    let sectionTitles = [
-        "Trending Movies",
-        "Trending TV",
-        "Popular",
-        "Upcoming Movies",
-        "Top Rated"
-    ]
-    
-    private var randomTrendingMovie: Title?
-    
+    private let viewModel: HomeViewModel
+        
     private var promoHeaderView: PromoHeaderUIView?
+    
+    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, _ homeViewModel: HomeViewModel) {
+        self.viewModel = homeViewModel
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
      
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,24 +51,16 @@ class HomeViewController : UIViewController {
     }
     
     private func configureHeaderView() {
-        APICaller.instance.getTrendingMovies { [weak self] results in
-            switch results {
-            case .success(let titles):
-                let title = titles.randomElement()
-                let titleName = title?.original_name ?? title?.original_name ?? ""
-                guard let titlePosterPath = title?.poster_path else {return}
-                self?.randomTrendingMovie = title
-                self?.promoHeaderView?.configure(with: TitleViewState(titleName: titleName, posterUrlPath: titlePosterPath))
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        let title = viewModel.getRandomTrendingTitle()
+        let titleName = title?.original_name ?? title?.original_name ?? ""
+        guard let titlePosterPath = title?.poster_path else {return}
+        self.promoHeaderView?.configure(with: TitleViewState(titleName: titleName, posterUrlPath: titlePosterPath))
     }
 }
 
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitles.count
+        return viewModel.getSectionCount()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,68 +75,35 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.delegate = self
         
+        var titles = [Title]()
         switch indexPath.section {
-        case Sections.TrendingMovies.rawValue:
-            APICaller.instance.getTrendingMovies { result in
-                switch result {
-                case .success(let titles):
-                    cell.configure(with: titles)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        case Sections.TrendingTV.rawValue:
-            APICaller.instance.getTrendingTvShows { result in
-                switch result {
-                case .success(let titles):
-                    cell.configure(with: titles)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        case Sections.Popular.rawValue:
-            APICaller.instance.getTopRatedMovies { result in
-                switch result {
-                case .success(let titles):
-                    cell.configure(with: titles)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        case Sections.UpcomingMovies.rawValue:
-            APICaller.instance.getUpcomingMovies { result in
-                switch result {
-                case .success(let titles):
-                    cell.configure(with: titles)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        case Sections.TopRated.rawValue:
-            APICaller.instance.getTopRatedMovies { result in
-                switch result {
-                case .success(let titles):
-                    cell.configure(with: titles)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+        case Sections.TrendingMovies.id:
+            titles = viewModel.getTrendingMovies()
+        case Sections.TrendingTV.id:
+            titles = viewModel.getTrendingTvShows()
+        case Sections.Popular.id:
+            titles = viewModel.getPopularMovies()
+        case Sections.UpcomingMovies.id:
+            titles = viewModel.getUpcomingMovies()
+        case Sections.TopRated.id:
+            titles = viewModel.getTopRatedMovies()
         default:
-            return UITableViewCell()
+            print("No titles available for section " + String(indexPath.section))
         }
+        cell.configure(with: titles)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200 
+        return WidgetsFactory.TABLE_VIEW_ITEM_HEIGHT
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return WidgetsFactory.TABLE_VIEW_ITEM_WIDTH
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitles[section]
+        return viewModel.getSectionTitle(section)
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

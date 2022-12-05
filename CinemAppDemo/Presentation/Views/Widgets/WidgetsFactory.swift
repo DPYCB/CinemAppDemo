@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 class WidgetsFactory {
+    static let TABLE_VIEW_ITEM_HEIGHT: CGFloat = 200
+    static let TABLE_VIEW_ITEM_WIDTH: CGFloat = 40
+    
     static func createButton(label: String, enableConstraints: Bool) -> UIButton {
         let button = UIButton()
         button.setTitle(label, for: .normal)
